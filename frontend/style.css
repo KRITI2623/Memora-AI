@@ -1,35 +1,83 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
     background: #f5f7fb;
 }
 
-.navbar {
+.container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+}
+
+.sidebar {
+    width: 250px;
     background: #1a237e;
     color: white;
-    padding: 20px 40px;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.sidebar u1 {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.sidebar li : hover {
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.navbar {
+    background: white;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .navbar input {
-    width: 250px;
+    width: 300px;
     padding: 10px;
-    border: none;
     border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
 .dashboard {
-    padding: 40px;
     text-align: center;
+    padding: 40px;
 }
 
 .card {
+    width: 320px;
     background: white;
-    width: 300px;
     margin: 20px auto;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0px, 2px, 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
