@@ -34,7 +34,7 @@ body {
     cursor: pointer;
 }
 
-.sidebar u1 {
+.sidebar ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -47,7 +47,7 @@ body {
     transition: 0.3s;
 }
 
-.sidebar li : hover {
+.sidebar li:hover {
     background: #3934ab;
     cursor: pointer;
 }
