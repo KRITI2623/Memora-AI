@@ -23,7 +23,14 @@ folderList.addEventListener("click", function (event) {
 
         selectedFolder.innerHTML = `
             <h2>${folderName}</h2>
-            <p>This folder is currently empty.</p>
+
+            <div class="content-types">
+                <div class = "content-type">📄 PDFs</div>
+                <div class = "content-type">🔗 Links</div>
+                <div class = "content-type">📝 Notes</div>
+                <div class = "content-type">🎥 Videos</div>
+                <div class = "content-type">🖼️ Images</div>
+            </div>
     `;
     }
 });

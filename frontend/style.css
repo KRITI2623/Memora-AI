@@ -96,3 +96,25 @@ body {
 .hidden {
     display: none;
 }
+
+.content-types {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.content-type {
+    background: white;
+    padding: 18px;
+    width: 13px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.content-type:hover {
+    transform: translateY(-3px);
+}
