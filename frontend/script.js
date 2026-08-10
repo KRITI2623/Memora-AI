@@ -15,3 +15,15 @@ newFolderButton.addEventListener("click", function () {
         folderList.appendChild(newFolder);
     }
 });
+const selectedFolder = document.getElementById("selectedFolder");
+
+folderList.addEventListener("click", function (event) {
+    if (event.target.tagName === "LI") {
+        const folderName = event.target.textContent.replace("📁 ", "");
+
+        selectedFolder.innerHTML = `
+            <h2>${folderName}</h2>
+            <p>This folder is currently empty.</p>
+    `;
+    }
+});
