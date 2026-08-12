@@ -25,12 +25,23 @@ folderList.addEventListener("click", function (event) {
             <h2>${folderName}</h2>
 
             <div class="content-types">
-                <div class = "content-type">📄 PDFs</div>
-                <div class = "content-type">🔗 Links</div>
-                <div class = "content-type">📝 Notes</div>
-                <div class = "content-type">🎥 Videos</div>
-                <div class = "content-type">🖼️ Images</div>
+                <div class = "content-type" id = "pdfs">📄 PDFs</div>
+                <div class = "content-type" id = "links">🔗 Links</div>
+                <div class = "content-type" id = "notes">📝 Notes</div>
+                <div class = "content-type" id = "videos">🎥 Videos</div>
+                <div class = "content-type" id = "images">🖼️ Images</div>
             </div>
     `;
+    }
+});
+const contentTypes = document.querySelectorAll(".content-type");
+contentTypes.forEach(function (type) {
+    type.addEventListener("click", function () {
+        alert("You clicked: " + type.textContent);
+    });
+});
+selectedFolder.addEventListener("click", function (event) {
+    if (event.target.classList.contains("content-type")) {
+        alert("You clicked: " + event.target.textContent);
     }
 });
