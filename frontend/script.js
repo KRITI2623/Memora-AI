@@ -56,6 +56,21 @@ selectedFolder.addEventListener("click", function (event) {
 });
 document.addEventListener("click", function (event) {
     if (event.target.id === "addPdfButton") {
-        alert("Pdf upload feature coming soon!");
+        document.getElementById("pdfInput").click();
+    }
+});
+const pdfInput = document.getElementById("pdfInput");
+pdfInput.addEventListener("change", function () {
+    const file = pdfInput.files[0];
+    if (file) {
+        const pdfList = document.createElement("div");
+        pdfList.className = "pdf-item";
+        pdfList.textContent = "📄 " + file.name;
+        pdfList.style.cursor = "pointer";
+        pdfList.addEventListener("click", function () {
+            const pdfURL = URL.createObjectURL(file);
+            window.open(pdfURL, "_blank");
+        });
+        document.getElementById("addPdfButton").before(pdfList);
     }
 });
