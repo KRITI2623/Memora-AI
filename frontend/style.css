@@ -118,3 +118,17 @@ body {
 .content-type:hover {
     transform: translateY(-3px);
 }
+
+#addPdfButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #1a237e;
+    color: white;
+}
+
+#addPdfButton:hover {
+    opacity: 0.85;
+}

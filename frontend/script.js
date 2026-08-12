@@ -42,6 +42,20 @@ contentTypes.forEach(function (type) {
 });
 selectedFolder.addEventListener("click", function (event) {
     if (event.target.classList.contains("content-type")) {
-        alert("You clicked: " + event.target.textContent);
+        const contentType = event.target.textContent;
+        if (contentType.includes("PDFs")) {
+            selectedFolder.innerHTML = `
+            <h2>📄 PDFs</h2>
+            <p>No PDFs saved yet.</p>
+            <button id = "addPdfButton">+ Add PDF</button>
+            `;
+        } else {
+            alert("You clicked: " + contentType);
+        }
+    }
+});
+document.addEventListener("click", function (event) {
+    if (event.target.id === "addPdfButton") {
+        alert("Pdf upload feature coming soon!");
     }
 });
