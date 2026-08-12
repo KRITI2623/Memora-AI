@@ -49,6 +49,12 @@ selectedFolder.addEventListener("click", function (event) {
             <p>No PDFs saved yet.</p>
             <button id = "addPdfButton">+ Add PDF</button>
             `;
+        } else if (contentType.includes("Links")) {
+            selectedFolder.innerHTML = `
+            <h2>🔗 Links</h2>
+            <p>No links saved yet.</p>
+            <button id = "addLinkButton">+ Add Link</button>
+            `;
         } else {
             alert("You clicked: " + contentType);
         }
@@ -72,5 +78,20 @@ pdfInput.addEventListener("change", function () {
             window.open(pdfURL, "_blank");
         });
         document.getElementById("addPdfButton").before(pdfList);
+    }
+});
+document.addEventListener("click", function (event) {
+    if (event.target.id === "addLinkButton") {
+        const linkURL = prompt("Enter ebsite URL");
+        if (linkURL) {
+            const linkItem = document.createElement("div");
+            linkItem.className = "link-item";
+            linkItem.textContent = "🔗 " + linkURL;
+            linkItem.style.cursor = "pointer";
+            linkItem.addEventListener("click", function () {
+                window.open(linkURL, "_blank");
+            });
+            document.getElementById("addLinkButton").before(linkItem);
+        }
     }
 });
