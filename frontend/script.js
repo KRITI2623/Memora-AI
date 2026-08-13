@@ -34,12 +34,6 @@ folderList.addEventListener("click", function (event) {
     `;
     }
 });
-const contentTypes = document.querySelectorAll(".content-type");
-contentTypes.forEach(function (type) {
-    type.addEventListener("click", function () {
-        alert("You clicked: " + type.textContent);
-    });
-});
 selectedFolder.addEventListener("click", function (event) {
     if (event.target.classList.contains("content-type")) {
         const contentType = event.target.textContent;
@@ -66,6 +60,13 @@ selectedFolder.addEventListener("click", function (event) {
             <h2>📝 Notes</h2>
             <p>No notes saved yet.</p>
             <button id = "addNoteButton">+ Add Note</button>
+            `;
+        }
+        else if (contentType.includes("Videos")) {
+            selectedFolder.innerHTML = `
+            <h2>🎥 Videos</h2>
+            <p>No videos saved yet.</p>
+            <button id ="addVideoButton">+ Add Video</button>
             `;
         } else {
             alert("You clicked: " + contentType);
@@ -141,5 +142,27 @@ document.addEventListener("click", function (event) {
         } else {
             alert("Please enter both a title and note.");
         }
+    }
+});
+document.addEventListener("click", function (event) {
+    if (event.target.id === "addVideoButton") {
+        document.getElementById("videoInput").click();
+    }
+});
+const videoInput = document.getElementById("videoInput");
+videoInput.addEventListener("change", function () {
+    const file = videoInput.files[0];
+    if (file) {
+        const videoURL = URL.createObjectURL(file);
+        const videoItem = document.createElement("div");
+        videoItem.className = "video-item";
+        videoItem.innerHTML = `
+        <h3>🎥 ${file.name}</h3>
+        <video controls width ="400">
+            <source src = "${videoURL}" type="${file.type}">
+            Your browser does not support this video.
+        </video>
+        `;
+        document.getElementById("addVideoButton").before(videoItem);
     }
 });
