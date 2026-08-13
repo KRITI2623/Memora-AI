@@ -55,6 +55,18 @@ selectedFolder.addEventListener("click", function (event) {
             <p>No links saved yet.</p>
             <button id = "addLinkButton">+ Add Link</button>
             `;
+        } else if (contentType.includes("Links")) {
+            selectedFolder.innerHTML = `
+            <h2>🔗 Links</h2>
+            <p>No Links saved yet.</p>
+            <button id = "addLinkButton">+Add Link</button>
+            `;
+        } else if (contentType.includes("Notes")) {
+            selectedFolder.innerHTML = `
+            <h2>📝 Notes</h2>
+            <p>No notes saved yet.</p>
+            <button id = "addNoteButton">+ Add Note</button>
+            `;
         } else {
             alert("You clicked: " + contentType);
         }
@@ -92,6 +104,42 @@ document.addEventListener("click", function (event) {
                 window.open(linkURL, "_blank");
             });
             document.getElementById("addLinkButton").before(linkItem);
+        }
+    }
+});
+document.addEventListener("click", function (event) {
+    if (event.target.id === "addNoteButton") {
+        selectedFolder.innerHTML = `
+        <h2>📝 New Note</h2>
+        <input
+            type = "text"
+            id = "noteTitle"
+            placeholder="Enter note title..."
+        >
+        <textarea
+            id = "noteContent"
+            placeholder = "Write your note here..."
+        ></textarea>
+        <br>
+        <button id = "saveNoteButton">Save Note</button>
+        `;
+    }
+});
+document.addEventListener("click", function (event) {
+    if (event.target.id === "saveNoteButton") {
+        const title = document.getElementById("noteTitle").value;
+        const content = document.getElementById("noteContent").value;
+        if (title && content) {
+            selectedFolder.innerHTML = `
+            <h2>📝 Notes</h2>
+            <div class = "note-item">
+                <h3>${title}</h3>
+                <p>${content}</p>
+                </div>
+                <button id= "addNoteButton">+ Add Note </button>
+                `;
+        } else {
+            alert("Please enter both a title and note.");
         }
     }
 });
