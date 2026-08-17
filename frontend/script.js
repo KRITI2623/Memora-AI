@@ -68,6 +68,13 @@ selectedFolder.addEventListener("click", function (event) {
             <p>No videos saved yet.</p>
             <button id ="addVideoButton">+ Add Video</button>
             `;
+        }
+        else if (contentType.includes("Images")) {
+            selectedFolder.innerHTML = `
+            <h2>🖼️ Images</h2>
+            <p>No images saved yet.</p>
+            <button id = "addImageButton">+ Add Image</button>
+            `;
         } else {
             alert("You clicked: " + contentType);
         }
@@ -164,5 +171,24 @@ videoInput.addEventListener("change", function () {
         </video>
         `;
         document.getElementById("addVideoButton").before(videoItem);
+    }
+});
+document.addEventListener("click", function (event) {
+    if (event.target.id === "addImageButton") {
+        document.getElementById("imageInput").click();
+    }
+});
+const imageInput = document.getElementById("imageInput");
+imageInput.addEventListener("change", function () {
+    const file = imageInput.files[0];
+    if (file) {
+        const imageURL = URL.createObjectURL(file);
+        const imageItem = document.createElement("div");
+        imageItem.className = "image-item";
+        imageItem.innerHTML = `
+        <h3>🖼️ ${file.name}</h3>
+        <img src = "${imageURL}" alt="${file.name}">
+        `;
+        document.getElementById("addImageButton").before(imageItem);
     }
 });
