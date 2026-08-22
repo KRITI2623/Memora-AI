@@ -192,3 +192,24 @@ imageInput.addEventListener("change", function () {
         document.getElementById("addImageButton").before(imageItem);
     }
 });
+fetch("https://127.0.0.1:8000/folders")
+    .then(response => response.json())
+    .then(data => {
+        console.log("Folders recieved from backend:", data);
+    })
+    .catch(error => {
+        console.error("Error connecting to backend:", error);
+    });
+async function loadFolders() {
+    try {
+        const response = await fetch("http://127.0.0.1:8000/folders");
+        if (!response.ok) {
+            throw new Error("Failed to fetch folders");
+        }
+        const data = await response.json();
+        console.log("Folders recieved from backend:", data.folders);
+    } catch (error) {
+        console.error("Error loading folders:", error);
+    }
+}
+loadFolders();
