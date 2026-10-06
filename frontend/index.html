@@ -1,51 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Memore-AI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memora AI</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="sidebar" id="sidebar">
-            <h2>Memora AI</h2>
-            <button id="newFolderButton">+New Folder</button>
-            <ul id="folderList">
-                <li>📁Study Notes</li>
-                <li>📁Songs</li>
-                <li>📁Travel</li>
-                <li>📁Important Docs</li>
-            </ul>
-        </div>
-        <div class="main-content">
-            <div class="navbar">
-                <span class="menu-icon" id="menuButton">☰</span>
-                <input type="text" placeholder="Search your resources....">
+    <div class="app-shell">
+        <aside class="sidebar" id="sidebar">
+            <div class="brand-row">
+                <div class="brand">
+                    <span class="brand-mark">M</span>
+                    <span>Memora AI</span>
+                </div>
+                <button id="newFolderButton" class="primary-btn small-btn">+ New Folder</button>
             </div>
-            <div class="dashboard">
-                <div id="selectedFolder"></div>
+            <ul id="folderList" class="folder-list" aria-label="Folder list"></ul>
+        </aside>
+
+        <main class="main-panel">
+            <header class="topbar">
+                <button class="menu-button" id="menuButton" aria-label="Toggle sidebar">☰</button>
+                <label class="search-wrap" aria-label="Search resources">
+                    <span class="search-icon">⌕</span>
+                    <input id="searchInput" type="text" placeholder="Search your resources...">
+                </label>
+            </header>
+
+            <section class="dashboard">
                 <div class="welcome-section">
                     <h1>Welcome to Memora AI 👋</h1>
                     <p>Your personal digital memory vault</p>
                 </div>
-                <div class="card">
-                    <h3>Today's Date</h3>
-                    <p>05 August 2026</p>
-                </div>
-                <div class="card">
-                    <h3>Pending Tasks</h3>
-                    <p>No pending tasks</p>
-                </div>
-            </div>
-        </div>
+                <div id="statsGrid" class="stats-grid"></div>
+            </section>
+
+            <section class="workspace">
+                <div id="selectedFolder" class="selected-folder"></div>
+            </section>
+        </main>
     </div>
+
     <input type="file" id="pdfInput" accept=".pdf" hidden>
     <input type="file" id="videoInput" accept="video/*" hidden>
     <input type="file" id="imageInput" accept="image/*" hidden>
 
-    <script src="script.js">
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
